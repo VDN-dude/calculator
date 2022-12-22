@@ -1,3 +1,4 @@
+import java.math.BigDecimal;
 import java.util.Scanner;
 
 public class Main {
@@ -13,29 +14,33 @@ public class Main {
             System.out.print("Please, write operation what would you do: ");
             String type = scanner.next();
 
+            BigDecimal dnum1 = new BigDecimal(snum1);
+            BigDecimal dnum2 = new BigDecimal(snum2);
 
-            double num1 = Double.parseDouble(snum1);
-            double num2 = Double.parseDouble(snum2);
+            BigDecimal result;
 
-            double result;
             switch (type) {
+
                 case "sum":
-                    result = num1 + num2;
+                    result = dnum1.add(dnum2);
                     break;
                 case "sub":
-                    result = num1 - num2;
+                    result = dnum1.subtract(dnum2);
                     break;
                 case "mul":
-                    result = num1 * num2;
+                    result = dnum1.multiply(dnum2);
                     break;
                 case "div":
-                    result = num1 / num2;
+                    result = dnum1.divide(dnum2);
                     break;
                 default:
                     System.out.println("Operation not found!");
                     continue;
             }
+
+
             System.out.println("Result: " + result);
+
             System.out.print("Want to continue? [Y]es , [N]o : ");
             String next = scanner.next();
             switch (next) {
